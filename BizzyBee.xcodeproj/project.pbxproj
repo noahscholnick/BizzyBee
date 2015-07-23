@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBEE669B03F082AC5F0D34C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 155943C269B087B0C7AA42C2 /* libPods.a */; };
 		F0271D521B5D6F2000AAE64F /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0271D511B5D6F2000AAE64F /* GooglePlace.swift */; };
 		F0271D541B5D6F3400AAE64F /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0271D531B5D6F3400AAE64F /* GoogleDataProvider.swift */; };
 		F0271D5A1B5E916600AAE64F /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0271D591B5E916600AAE64F /* GoogleMaps.framework */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		155943C269B087B0C7AA42C2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		504877E41E6459B82A74972C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F0271D511B5D6F2000AAE64F /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
 		F0271D531B5D6F3400AAE64F /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
 		F0271D591B5E916600AAE64F /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		F0271D731B5E957F00AAE64F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F0271D751B5E98A700AAE64F /* BizzyBee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BizzyBee-Bridging-Header.h"; sourceTree = "<group>"; };
 		F0271D761B5E98A700AAE64F /* TutorialStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialStep.m; path = Model/TutorialStep.m; sourceTree = "<group>"; };
+		F0271D7C1B601C9600AAE64F /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		F03C6C851B5809CF006FC387 /* BizzyBee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BizzyBee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F03C6C891B5809CF006FC387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F03C6C8A1B5809CF006FC387 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 		F03C6C9A1B5809CF006FC387 /* BizzyBeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BizzyBeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F03C6C9F1B5809CF006FC387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F03C6CA01B5809CF006FC387 /* BizzyBeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BizzyBeeTests.swift; sourceTree = "<group>"; };
+		F293378A9913365623A94439 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +96,7 @@
 				F0271D601B5E94C900AAE64F /* CoreData.framework in Frameworks */,
 				F0271D5E1B5E94C000AAE64F /* AVFoundation.framework in Frameworks */,
 				F0271D5A1B5E916600AAE64F /* GoogleMaps.framework in Frameworks */,
+				BBEE669B03F082AC5F0D34C9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69D8FA5E65992F628576BE17 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F293378A9913365623A94439 /* Pods.debug.xcconfig */,
+				504877E41E6459B82A74972C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F0271D501B5D6F0000AAE64F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +145,7 @@
 				F0271D5D1B5E94C000AAE64F /* AVFoundation.framework */,
 				F0271D5B1B5E945800AAE64F /* GoogleMaps.bundle */,
 				F0271D591B5E916600AAE64F /* GoogleMaps.framework */,
+				155943C269B087B0C7AA42C2 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,10 +153,12 @@
 		F03C6C7C1B5809CF006FC387 = {
 			isa = PBXGroup;
 			children = (
+				F0271D7C1B601C9600AAE64F /* Podfile */,
 				F0271D581B5E90E100AAE64F /* Frameworks */,
 				F03C6C871B5809CF006FC387 /* BizzyBee */,
 				F03C6C9D1B5809CF006FC387 /* BizzyBeeTests */,
 				F03C6C861B5809CF006FC387 /* Products */,
+				69D8FA5E65992F628576BE17 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,9 +219,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F03C6CA41B5809CF006FC387 /* Build configuration list for PBXNativeTarget "BizzyBee" */;
 			buildPhases = (
+				B757EEF82A5657911CC55F12 /* Check Pods Manifest.lock */,
 				F03C6C811B5809CF006FC387 /* Sources */,
 				F03C6C821B5809CF006FC387 /* Frameworks */,
 				F03C6C831B5809CF006FC387 /* Resources */,
+				FA505493DC2358B956E1E292 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,6 +309,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B757EEF82A5657911CC55F12 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA505493DC2358B956E1E292 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F03C6C811B5809CF006FC387 /* Sources */ = {
@@ -428,6 +481,7 @@
 		};
 		F03C6CA51B5809CF006FC387 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F293378A9913365623A94439 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -445,6 +499,7 @@
 		};
 		F03C6CA61B5809CF006FC387 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 504877E41E6459B82A74972C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
