@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 import GoogleMaps
 
 
@@ -27,6 +28,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
      var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
+    var testSearchedTypes = ["bar"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +64,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             locationManager.stopUpdatingLocation()
             
+            //TODO
             fetchNearbyPlaces(location.coordinate)
             
         }
@@ -75,7 +78,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
         
-        dataProvider.fetchPlacesNearCoordinate(coordinate, radius: 100.0, types: searchedTypes) { places in
+        dataProvider.fetchPlacesNearCoordinate(coordinate, radius: 100.0, types: testSearchedTypes) { places in
             for place: GooglePlace in places {
                 //
             }
@@ -111,10 +114,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 println("Pick Place error: \(error.localizedDescription)")
                 return
             }
-            
            // self.nameLabel.text = "No current place"
             //self.addressLabel.text = ""
-            
+            println(placeLikelihoodList!.likelihoods)
             if let placeLicklihoodList = placeLikelihoodList {
                 let place = placeLicklihoodList.likelihoods.first?.place
                 if let place = place {
