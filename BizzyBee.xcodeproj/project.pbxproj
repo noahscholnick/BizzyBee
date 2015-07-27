@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		94F260A60FD010B4898A06FD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9059E33994F390B227BA345A /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F02528A81B66B106008532BD /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02528A71B66B106008532BD /* LocationTableViewController.swift */; };
+		F02528AA1B66B12B008532BD /* VenueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02528A91B66B12B008532BD /* VenueTableViewController.swift */; };
+		F02528AD1B66B2B5008532BD /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02528AC1B66B2B5008532BD /* LocationTableViewCell.swift */; };
+		F02528AF1B66B2C4008532BD /* VenueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02528AE1B66B2C4008532BD /* VenueTableViewCell.swift */; };
 		F0271D521B5D6F2000AAE64F /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0271D511B5D6F2000AAE64F /* GooglePlace.swift */; };
 		F0271D541B5D6F3400AAE64F /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0271D531B5D6F3400AAE64F /* GoogleDataProvider.swift */; };
 		F0271D5E1B5E94C000AAE64F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0271D5D1B5E94C000AAE64F /* AVFoundation.framework */; };
@@ -44,6 +48,10 @@
 /* Begin PBXFileReference section */
 		504877E41E6459B82A74972C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9059E33994F390B227BA345A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02528A71B66B106008532BD /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		F02528A91B66B12B008532BD /* VenueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueTableViewController.swift; sourceTree = "<group>"; };
+		F02528AC1B66B2B5008532BD /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		F02528AE1B66B2C4008532BD /* VenueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueTableViewCell.swift; sourceTree = "<group>"; };
 		F0271D511B5D6F2000AAE64F /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
 		F0271D531B5D6F3400AAE64F /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
 		F0271D5D1B5E94C000AAE64F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -114,6 +122,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F02528A51B66B0C4008532BD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F02528A71B66B106008532BD /* LocationTableViewController.swift */,
+				F02528A91B66B12B008532BD /* VenueTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F02528A61B66B0D8008532BD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F02528AC1B66B2B5008532BD /* LocationTableViewCell.swift */,
+				F02528AE1B66B2C4008532BD /* VenueTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F0271D501B5D6F0000AAE64F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +193,8 @@
 		F03C6C871B5809CF006FC387 /* BizzyBee */ = {
 			isa = PBXGroup;
 			children = (
+				F02528A61B66B0D8008532BD /* Views */,
+				F02528A51B66B0C4008532BD /* View Controllers */,
 				F0271D501B5D6F0000AAE64F /* Model */,
 				F03C6C8A1B5809CF006FC387 /* AppDelegate.swift */,
 				F03C6C8C1B5809CF006FC387 /* ViewController.swift */,
@@ -358,8 +386,12 @@
 			files = (
 				F03C6C8D1B5809CF006FC387 /* ViewController.swift in Sources */,
 				F0271D541B5D6F3400AAE64F /* GoogleDataProvider.swift in Sources */,
+				F02528AD1B66B2B5008532BD /* LocationTableViewCell.swift in Sources */,
+				F02528AF1B66B2C4008532BD /* VenueTableViewCell.swift in Sources */,
+				F02528AA1B66B12B008532BD /* VenueTableViewController.swift in Sources */,
 				F03C6C8B1B5809CF006FC387 /* AppDelegate.swift in Sources */,
 				F0271D521B5D6F2000AAE64F /* GooglePlace.swift in Sources */,
+				F02528A81B66B106008532BD /* LocationTableViewController.swift in Sources */,
 				F0271D771B5E98A700AAE64F /* TutorialStep.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

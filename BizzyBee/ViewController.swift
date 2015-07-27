@@ -9,11 +9,13 @@
 import UIKit
 import CoreLocation
 import GoogleMaps
+import Foundation
 
 
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+
+class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate {
     
     
     @IBOutlet weak var locationTableView: UITableView!
@@ -21,7 +23,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var venueTableView: UITableView!
     
     
+    
     var placesClient: GMSPlacesClient?
+    
+    var placePicker: GMSPlacePicker?
 
     let dataProvider = GoogleDataProvider()
     
@@ -39,6 +44,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         placesClient = GMSPlacesClient()
         
+       // locationTableView.dataSource = self
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -116,19 +122,81 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
            // self.nameLabel.text = "No current place"
             //self.addressLabel.text = ""
-            println(placeLikelihoodList!.likelihoods)
+            //println(placeLikelihoodList!.likelihoods)
+            
+           // println(placeLikelihoodList!.likelihoods[4].rating)
+            println(placeLikelihoodList!.likelihoods[4].attributes)
+            
+           // println("are you at \(placeLikelihoodList!.likelihoods)")
+            //var areYouHere: [String]
+            
+           // var areYouHere = placeLikelihoodList!.likelihoods as! [String]
+            
+            
+            if let list = placeLikelihoodList!.likelihoods as? [GMSPlaceLikelihood] {
+                println("ASd")
+                let example = list[0].place.types
+                
+            }
+            
+            let areYouHere = placeLikelihoodList!.likelihoods!
+            println(areYouHere)
+            
+            
             if let placeLicklihoodList = placeLikelihoodList {
                 let place = placeLicklihoodList.likelihoods.first?.place
                 if let place = place {
-                    println(place.name)
+                    //println(place.name)
+                    //println(place.types)
+                    //println(place.openNowStatus)
+                    //println(place.rating)
+                    //println(place.priceLevel)
+                    //println(place.types)
                     
-                  //  self.nameLabel.text = place.name
+                    //self.locationLabel.text = place.name
                    // self.addressLabel.text = "\n".join(place.formattedAddress.componentsSeparatedByString(", "))
+                    
                 }
             }
+            
         })
     }
+    
+//    
+//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return 2
+//    }
+//    
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 3
+//        //.count
+//    }
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as! UITableViewCell
+//        
+//        cell.textLabel?.text = placeLikelihoodList!.likelihoods[indexPath.row]
+//        
+//        
+//        return cell
+//    }
+
 
     
 }
-
+//extension ViewController: UITableViewDataSource {
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath) //as! NoteTableViewCell //1
+//        
+//        let row = indexPath.row
+//        cell.locationLabel?.text = "Hello World"
+//        
+//        return cell as! UITableViewCell
+//    }
+//    
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 5
+//    }
+//    
+//}
