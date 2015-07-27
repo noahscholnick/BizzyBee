@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3EFDBD29-D374-4E2F-8343-EC707E188E27</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BizzyBee</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C447CFB73D8AD24DCE0E5704834CD10DF591FA6B</key>
+		<string>https://github.com/noahscholnick/BizzyBee.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BizzyBee.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C447CFB73D8AD24DCE0E5704834CD10DF591FA6B</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/noahscholnick/BizzyBee.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C447CFB73D8AD24DCE0E5704834CD10DF591FA6B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C447CFB73D8AD24DCE0E5704834CD10DF591FA6B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BizzyBee</string>
+		</dict>
+	</array>
+</dict>
+</plist>
