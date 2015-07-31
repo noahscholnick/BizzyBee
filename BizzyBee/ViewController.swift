@@ -32,6 +32,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     
     let locationManager = CLLocationManager()
     
+ 
+
+    
+    
+    
      var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
     var testSearchedTypes = ["bar"]
     
@@ -60,18 +65,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedAlways {
             locationManager.startUpdatingLocation()
-            ////
+            
             
         }
     }
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         if let location = locations.first as? CLLocation {
             ///
-            
             locationManager.stopUpdatingLocation()
             
+            
             //TODO
+            
             fetchNearbyPlaces(location.coordinate)
+            
+            
+            
+            
             
         }
     }
@@ -84,9 +94,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 
     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
         
-        dataProvider.fetchPlacesNearCoordinate(coordinate, radius: 100.0, types: testSearchedTypes) { places in
+        dataProvider.fetchPlacesNearCoordinate(coordinate, radius: 1000.0, types: searchedTypes) { places in
             for place: GooglePlace in places {
-                //
+                let placeTester = place
+                println(placeTester)
+            
             }
             
         }
@@ -125,7 +137,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
             //println(placeLikelihoodList!.likelihoods)
             
            // println(placeLikelihoodList!.likelihoods[4].rating)
-            println(placeLikelihoodList!.likelihoods[4].attributes)
+           // println(placeLikelihoodList!.likelihoods[4].attributes)
             
            // println("are you at \(placeLikelihoodList!.likelihoods)")
             //var areYouHere: [String]
@@ -134,19 +146,62 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
             
             
             if let list = placeLikelihoodList!.likelihoods as? [GMSPlaceLikelihood] {
-                println("ASd")
-                let example = list[0].place.types
                 
+                let example = list[2].place.name
+              //  let tester = list.filter {$0.place.types == "bar"}
+               // println(list)
+                
+               // println(example)
+                let testing = list.first?.place.name
+               // println(list.count)
+                
+                var nameArray: [String] = []
+                var typeArray: [String] = []
+                var totalArray: [String] = []
+                
+                var barArray: [String] = []
+                
+//                for var x = 0; x < list.count; x++ {
+//                    
+//                    
+//                    nameArray.append(list[x].place.name)
+//                    nameArray.append(list[x].place.phoneNumber)
+//                    
+//                    var typesTester = list[x].place.types as! [String]
+//                    
+                
+                    
+                    
+                    
+                  //  println(typesTester)
+                    
+                  //  if typesTester as AnyObject? as? String == "bar" {
+//                    if typesTester.filter("bar") {
+//                        println("what the fuck i love myself")
+//                    }
+//                    else {
+//                        println("not a bar")
+//                    }
+//                   // println(list[x].place.name)
+                    
+                    
+              //  }
+               
+               // println(nameArray)
             }
             
             let areYouHere = placeLikelihoodList!.likelihoods!
-            println(areYouHere)
+           // println(areYouHere)
+            
+            
+           
+            
             
             
             if let placeLicklihoodList = placeLikelihoodList {
                 let place = placeLicklihoodList.likelihoods.first?.place
                 if let place = place {
-                    //println(place.name)
+                    println(place.name)
                     //println(place.types)
                     //println(place.openNowStatus)
                     //println(place.rating)

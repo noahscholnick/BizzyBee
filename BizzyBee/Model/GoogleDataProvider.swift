@@ -14,12 +14,12 @@ import UIKit
 class GoogleDataProvider {
     
 
-    let apiKey = "AIzaSyBt_-82BywzNz3SmToB3zR7IjehvbBtzzA"
+    let apiKey = "AIzaSyCdLm7amWhXwgMevAYWvGZ8dt8bKOPUCDM"
     var photoCache = [String:UIImage]()
     var placesTask = NSURLSessionDataTask()
     var session: NSURLSession {
     return NSURLSession.sharedSession()
-}
+    }
 
     func fetchPlacesNearCoordinate(coordinate: CLLocationCoordinate2D, radius: Double, types:[String],
     completion: (([GooglePlace]) -> Void)) -> () {

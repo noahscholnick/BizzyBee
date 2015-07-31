@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let googleMapsApiKey = "AIzaSyBt_-82BywzNz3SmToB3zR7IjehvbBtzzA"
+    let googleMapsApiKey = "AIzaSyCaKF3lvRTvU8wCh2Hj7hxIkHtYUKC8KdE"
 
 
     
