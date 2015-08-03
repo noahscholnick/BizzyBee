@@ -24,6 +24,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     
     
     
+    
+    var testArray1 = ["asdfa", "asdfasdf", "asdfaeuhifaweifn", "asduifhaisuhdf"]
+    var testArray2 = ["bbbiojeiofj", "biejiaiab", "bihibhaub"]
+    
     var placesClient: GMSPlacesClient?
     
     var placePicker: GMSPlacePicker?
@@ -38,13 +42,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     
     
      var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
-    var testSearchedTypes = ["bar"]
+    var barSearchedTypes = ["bar"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
+        
+        
+        
+        self.locationTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.venueTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell2")
+        
         
         
         placesClient = GMSPlacesClient()
@@ -90,17 +100,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     
     
     
-  
+    var suggestedArray: [String] = []
+
 
     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
         
-        dataProvider.fetchPlacesNearCoordinate(coordinate, radius: 1000.0, types: searchedTypes) { places in
+        dataProvider.fetchPlacesNearCoordinate(coordinate, radius: 1000.0, types: barSearchedTypes) { places in
             for place: GooglePlace in places {
                 let placeTester = place
-                println(placeTester)
-            
+              //  println(placeTester)
+               // println(places.first!.name)
+                println(place)
+                for var x=0; x<places.count; x++ {
+                    self.suggestedArray.append(places[x].name)
+                }
+                
             }
-            
+            println(self.suggestedArray)
         }
         
     }
@@ -125,6 +141,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
             }
         
     }
+    
+    var nameArray: [String] = []
+    
+    
+    
     @IBAction func getCurrentPlace(sender: UIButton) {
         
         placesClient?.currentPlaceWithCallback({ (placeLikelihoodList: GMSPlaceLikelihoodList?, error: NSError?) -> Void in
@@ -155,25 +176,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
                 let testing = list.first?.place.name
                // println(list.count)
                 
-                var nameArray: [String] = []
+                
                 var typeArray: [String] = []
                 var totalArray: [String] = []
                 
                 var barArray: [String] = []
                 
-//                for var x = 0; x < list.count; x++ {
-//                    
-//                    
-//                    nameArray.append(list[x].place.name)
-//                    nameArray.append(list[x].place.phoneNumber)
-//                    
-//                    var typesTester = list[x].place.types as! [String]
-//                    
+                for var x = 0; x < list.count; x++ {
+                
+                    
+                    self.nameArray.append(list[x].place.name)
+                  //  nameArray.append(list[x].place.phoneNumber)
+                    
+                    var typesTester = list[x].place.types as! [String]
+                    
+                
                 
                     
                     
-                    
-                  //  println(typesTester)
+              //      println(typesTester)
                     
                   //  if typesTester as AnyObject? as? String == "bar" {
 //                    if typesTester.filter("bar") {
@@ -185,9 +206,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 //                   // println(list[x].place.name)
                     
                     
-              //  }
+                }
                
-               // println(nameArray)
+                println(self.nameArray)
+                println()
             }
             
             let areYouHere = placeLikelihoodList!.likelihoods!
@@ -201,7 +223,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
             if let placeLicklihoodList = placeLikelihoodList {
                 let place = placeLicklihoodList.likelihoods.first?.place
                 if let place = place {
-                    println(place.name)
+                 //   println(place.name)
                     //println(place.types)
                     //println(place.openNowStatus)
                     //println(place.rating)
@@ -236,22 +258,43 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 //        return cell
 //    }
 
-
+//var items: [String] = ["We", "Heart", "Swift"]
     
 }
-//extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    
+
 //    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath) //as! NoteTableViewCell //1
-//        
-//        let row = indexPath.row
-//        cell.locationLabel?.text = "Hello World"
-//        
-//        return cell as! UITableViewCell
-//    }
-//    
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 5
-//    }
-//    
-//}
+//    @IBOutlet var locationTableView: UITableView!
+//    @IBOutlet var venueTableView: UITableView!
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    
+    
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == locationTableView {
+            return self.testArray1.count
+        } else {
+            return self.testArray2.count;
+           
+        }
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->     UITableViewCell {
+        if tableView == locationTableView {
+            var cell:UITableViewCell = self.locationTableView.dequeueReusableCellWithIdentifier("LocationCell") as!     UITableViewCell
+            cell.textLabel!.text = String(self.testArray1[indexPath.row])
+            
+            return cell
+        } else {
+            var cell2:UITableViewCell = self.venueTableView.dequeueReusableCellWithIdentifier("VenueCell") as! UITableViewCell
+            cell2.textLabel!.text = String(self.testArray2[indexPath.row])
+            return cell2  
+        }
+    }}

@@ -5,42 +5,54 @@
 //  Created by Noah Scholnick on 7/27/15.
 //  Copyright (c) 2015 Noah Scholnick. All rights reserved.
 //
+//
+//import UIKit
+//import Foundation
 
-import UIKit
-
-class LocationTableViewController: UITableViewController {
-    
-    @IBOutlet weak var locationTableView:UITableView!
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
+//
+//class LocationTableViewController: UITableViewController {
+//    
+//    @IBOutlet weak var locationTableView:UITableView!
+//     var items: [String] = ["We", "Heart", "Swift"]
+//    
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//    }
+//
+//
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//
+//    // MARK: - Table view data source
+//
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return self.items.count
+//        
+//    }
+//
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete method implementation.
+//        // Return the number of rows in the section.
+//        return 0
+//    }
+//    
+//    
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+//        
+//        cell.textLabel?.text = self.items[indexPath.row]
+//        
+//        return cell
+//    }
+//    
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        println("You selected cell #\(indexPath.row)!")
+//    }
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -97,4 +109,4 @@ class LocationTableViewController: UITableViewController {
     }
     */
 
-}
+
