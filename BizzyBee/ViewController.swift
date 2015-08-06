@@ -65,6 +65,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        //
+        locationTableView.reloadData()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -97,7 +101,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     }
 
     
-    
+
     
     
     var suggestedArray: [String] = []
@@ -116,9 +120,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
                 }
                 
             }
+            self.venueTableView.reloadData()
             println(self.suggestedArray)
         }
-        
+       
     }
     
     func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
@@ -143,8 +148,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     }
     
     var nameArray: [String] = []
+    var realNameArray: [String] = []
     
-    
+    var dictExample: [String:String] = [:]
     
     @IBAction func getCurrentPlace(sender: UIButton) {
         
@@ -164,6 +170,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
             //var areYouHere: [String]
             
            // var areYouHere = placeLikelihoodList!.likelihoods as! [String]
+            
+            
+            
+            
             
             
             if let list = placeLikelihoodList!.likelihoods as? [GMSPlaceLikelihood] {
@@ -191,7 +201,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
                     var typesTester = list[x].place.types as! [String]
                     
                 
-                
+                 //   self.dictExample[list[x].place.name] = list[x].place.types as! String
+                    
+                //    println(self.dictExample)
+                    
                     
                     
               //      println(typesTester)
@@ -207,9 +220,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
                     
                     
                 }
+               // println(self.dictExample)
                
+                self.locationTableView.reloadData()
                 println(self.nameArray)
                 println()
+                
             }
             
             let areYouHere = placeLikelihoodList!.likelihoods!
@@ -258,18 +274,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 //        return cell
 //    }
 
-//var items: [String] = ["We", "Heart", "Swift"]
+
     
 }
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
 
-//    
-//    @IBOutlet var locationTableView: UITableView!
-//    @IBOutlet var venueTableView: UITableView!
+
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        println("pressed")
+        self.performSegueWithIdentifier("toVenueScreenSegue", sender: self)
     }
     
     
@@ -278,23 +293,24 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == locationTableView {
-            return self.testArray1.count
+            return self.nameArray.count
+          //  return 4
         } else {
-            return self.testArray2.count;
-           
+            return self.suggestedArray.count
+          // return 4
         }
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->     UITableViewCell {
         if tableView == locationTableView {
-            var cell:UITableViewCell = self.locationTableView.dequeueReusableCellWithIdentifier("LocationCell") as!     UITableViewCell
-            cell.textLabel!.text = String(self.testArray1[indexPath.row])
+            var cell:LocationTableViewCell = self.locationTableView.dequeueReusableCellWithIdentifier("LocationCell") as! LocationTableViewCell
+            cell.locationLabel!.text = String(self.nameArray[indexPath.row])
             
             return cell
         } else {
-            var cell2:UITableViewCell = self.venueTableView.dequeueReusableCellWithIdentifier("VenueCell") as! UITableViewCell
-            cell2.textLabel!.text = String(self.testArray2[indexPath.row])
+            var cell2:VenueTableViewCell = self.venueTableView.dequeueReusableCellWithIdentifier("VenueCell") as! VenueTableViewCell
+            cell2.venueLabel!.text = String(self.suggestedArray[indexPath.row])
             return cell2  
         }
     }}

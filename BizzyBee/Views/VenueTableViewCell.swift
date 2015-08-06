@@ -13,6 +13,9 @@ class VenueTableViewCell: UITableViewCell {
     
     
     
+    @IBOutlet weak var venueLabel: UILabel!
+    
+    @IBOutlet weak var venueDistanceLabel:UILabel!
     
     
     
