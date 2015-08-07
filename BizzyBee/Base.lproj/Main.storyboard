@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1oW-YL-TcM" userLabel="Venue Table View">
-                                <rect key="frame" x="0.0" y="296" width="600" height="248"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1oW-YL-TcM" userLabel="Venue Table View">
+                                <rect key="frame" x="0.0" y="340" width="600" height="260"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VenueCell" rowHeight="78" id="8Qy-Xf-WIp" customClass="VenueTableViewCell" customModule="BizzyBee" customModuleProvider="target">
@@ -27,22 +27,26 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Qy-Xf-WIp" id="ZP0-dt-otN">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VenueName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnO-qF-Qoy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="VenueName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnO-qF-Qoy">
                                                     <rect key="frame" x="23" y="18" width="92.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=".7 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpe-OJ-rIp">
-                                                    <rect key="frame" x="538" y="18" width="38" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text=".7 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpe-OJ-rIp">
+                                                    <rect key="frame" x="415.5" y="18" width="161.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fpe-OJ-rIp" secondAttribute="bottom" constant="31.5" id="85j-ta-qe5"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="lnO-qF-Qoy" secondAttribute="bottom" constant="30" id="HBs-R4-lry"/>
+                                                <constraint firstItem="fpe-OJ-rIp" firstAttribute="top" secondItem="ZP0-dt-otN" secondAttribute="topMargin" constant="10" id="SRD-zN-Ndj"/>
+                                                <constraint firstItem="fpe-OJ-rIp" firstAttribute="leading" secondItem="lnO-qF-Qoy" secondAttribute="trailing" constant="300" id="cPe-AC-WiK"/>
                                                 <constraint firstItem="lnO-qF-Qoy" firstAttribute="top" secondItem="ZP0-dt-otN" secondAttribute="topMargin" constant="10" id="lQa-76-U8W"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fpe-OJ-rIp" secondAttribute="trailing" constant="15" id="tyJ-hW-ZbV"/>
                                                 <constraint firstItem="lnO-qF-Qoy" firstAttribute="leading" secondItem="ZP0-dt-otN" secondAttribute="leadingMargin" constant="15" id="wvC-et-lhR"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -115,15 +119,6 @@
                                     <outlet property="delegate" destination="Mjq-Jw-OIg" id="uXr-5w-CMk"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V73-hp-tIJ">
-                                <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
-                                <state key="normal" title="Tester">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getCurrentPlace:" destination="Mjq-Jw-OIg" eventType="touchUpInside" id="v6F-Ir-RlX"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Top Places Right Now" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvB-zX-993">
                                 <rect key="frame" x="86" y="340" width="428" height="20.5"/>
                                 <constraints>
@@ -157,6 +152,7 @@
                             <constraint firstItem="kvB-zX-993" firstAttribute="top" secondItem="Ld0-pe-3su" secondAttribute="bottom" constant="340" id="dXx-2F-R2a"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kvB-zX-993" secondAttribute="trailing" constant="110" id="gXu-FE-yP2"/>
                             <constraint firstItem="Ld0-pe-3su" firstAttribute="top" secondItem="fv3-yd-X7K" secondAttribute="bottom" id="i1M-OX-Wg7"/>
+                            <constraint firstItem="V2h-tP-Lph" firstAttribute="top" secondItem="1oW-YL-TcM" secondAttribute="bottom" constant="10" id="lr7-55-hbL"/>
                             <constraint firstItem="fv3-yd-X7K" firstAttribute="leading" secondItem="CcO-7H-Hya" secondAttribute="leadingMargin" constant="240" id="oNf-c2-j8g"/>
                             <constraint firstItem="fv3-yd-X7K" firstAttribute="top" secondItem="2us-ja-cTh" secondAttribute="bottom" constant="1" id="vTl-Iq-c5n"/>
                             <constraint firstItem="kvB-zX-993" firstAttribute="top" secondItem="Ld0-pe-3su" secondAttribute="bottom" constant="200" id="wOo-aL-vH2"/>
@@ -165,17 +161,28 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="3h7-xq-P3i"/>
+                                <exclude reference="ypz-sD-5tm"/>
                                 <exclude reference="8uF-FP-0CU"/>
                                 <exclude reference="LAv-WQ-rBr"/>
                                 <exclude reference="oNf-c2-j8g"/>
                                 <exclude reference="Tjh-ad-Sfx"/>
                                 <exclude reference="dXx-2F-R2a"/>
                                 <exclude reference="gXu-FE-yP2"/>
+                                <exclude reference="wOo-aL-vH2"/>
+                                <exclude reference="lr7-55-hbL"/>
                             </mask>
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="nll-et-Z9a"/>
+                    <navigationItem key="navigationItem" id="nll-et-Z9a">
+                        <barButtonItem key="leftBarButtonItem" title="Tester" id="jke-Vf-peU">
+                            <connections>
+                                <action selector="getCurrentPlace:" destination="Mjq-Jw-OIg" id="Yrc-t0-lSu"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="dnh-dP-dnF"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="locationTableView" destination="Ld0-pe-3su" id="H12-Xv-Kd6"/>

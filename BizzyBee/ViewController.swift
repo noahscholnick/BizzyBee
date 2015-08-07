@@ -113,8 +113,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
             for place: GooglePlace in places {
                 let placeTester = place
               //  println(placeTester)
+                
                // println(places.first!.name)
-                println(place)
+                //println(place)
                 for var x=0; x<places.count; x++ {
                     self.suggestedArray.append(places[x].name)
                 }
@@ -152,7 +153,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     
     var dictExample: [String:String] = [:]
     
-    @IBAction func getCurrentPlace(sender: UIButton) {
+    @IBAction func getCurrentPlace(sender: UIBarButtonItem) {
         
         placesClient?.currentPlaceWithCallback({ (placeLikelihoodList: GMSPlaceLikelihoodList?, error: NSError?) -> Void in
             if let error = error {
@@ -294,10 +295,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == locationTableView {
             return self.nameArray.count
-          //  return 4
+          
         } else {
             return self.suggestedArray.count
-          // return 4
+          
         }
     }
     

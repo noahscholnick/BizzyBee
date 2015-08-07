@@ -42,9 +42,9 @@ class GoogleDataProvider {
                         let place = GooglePlace(dictionary: rawPlace as! NSDictionary, acceptedTypes: types)
                         placesArray.append(place)
                         if let reference = place.photoReference {
-                            self.fetchPhotoFromReference(reference) { image in
-                                place.photo = image
-                            }
+//                            self.fetchPhotoFromReference(reference) { image in
+//                                place.photo = image
+//                            }
                         }
                     }
                 }
