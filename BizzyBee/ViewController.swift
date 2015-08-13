@@ -23,6 +23,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     @IBOutlet weak var venueTableView: UITableView!
     
     
+    var bizzyCounter = 0
     
     
     var testArray1 = ["asdfa", "asdfasdf", "asdfaeuhifaweifn", "asduifhaisuhdf"]
@@ -94,6 +95,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
             fetchNearbyPlaces(location.coordinate)
             
             
+            getCurrentPlace()
+            
+            
+            
             
             
             
@@ -153,7 +158,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     
     var dictExample: [String:String] = [:]
     
-    @IBAction func getCurrentPlace(sender: UIBarButtonItem) {
+    func getCurrentPlace() {
         
         placesClient?.currentPlaceWithCallback({ (placeLikelihoodList: GMSPlaceLikelihoodList?, error: NSError?) -> Void in
             if let error = error {
@@ -284,8 +289,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("pressed")
-        self.performSegueWithIdentifier("toVenueScreenSegue", sender: self)
+
+        if tableView == venueTableView {
+            self.performSegueWithIdentifier("toVenueScreenSegue", sender: self)
+        }
     }
     
     
@@ -314,4 +321,58 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             cell2.venueLabel!.text = String(self.suggestedArray[indexPath.row])
             return cell2  
         }
-    }}
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        
+        
+        let bizzyButton = UITableViewRowAction(style: .Normal, title: "Bizzy       ") { action, index in
+            println("Bizzy button tapped")
+            self.bizzyCounter = self.bizzyCounter + 1
+            println(self.bizzyCounter)
+            
+            
+            
+        }
+        bizzyButton.backgroundColor = UIColor.greenColor()
+        
+        
+        
+        
+        let notBizzyButton = UITableViewRowAction(style: .Normal, title: "Not Bizzy") { action, index in
+            println("Not Bizzy button tapped")
+            self.bizzyCounter = self.bizzyCounter - 1
+            println(self.bizzyCounter)
+
+        }
+        notBizzyButton.backgroundColor = UIColor.redColor()
+        
+//        let share = UITableViewRowAction(style: .Normal, title: "Share") { action, index in
+//            println("share button tapped")
+//        }
+//        share.backgroundColor = UIColor.blueColor()
+        
+        return [ bizzyButton, notBizzyButton]
+        
+        
+    
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if tableView == locationTableView {
+            return true
+        }
+        else {
+            return false
+        }
+        
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // you need to implement this method too or you can't swipe to display the actions
+    }
+
+
+    
+
+}
